@@ -6,4 +6,5 @@ services:
     build: ./src
     ports:
       - 25565:25565
-    restart: always
+    volumes:
+      - ./src/minecraft.conf:/opt/nginx/stream.conf.d/minecraft.conf:ro
