@@ -1,0 +1,9 @@
+version: '3.1'
+
+services:
+  proxy:
+    image: minecraft-nginx-reverse-proxy
+    build: ./src
+    ports:
+      - 25565:25565
+    restart: always
