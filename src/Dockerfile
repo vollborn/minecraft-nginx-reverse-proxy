@@ -24,7 +24,8 @@ RUN adduser --system --no-create-home --disabled-login --disabled-password --gro
 RUN mkdir /opt/nginx/http.conf.d && mkdir /opt/nginx/stream.conf.d
 
 ADD nginx.conf /opt/nginx/conf/nginx.conf
-ADD zero_downtime_reload.sh /opt/nginx/sbin/zero_downtime_reload.sh
+ADD set_host.sh /opt/nginx/sbin/set_host.sh
+ADD minecraft.template.conf /opt/minecraft.template.conf
 
 WORKDIR /
 
