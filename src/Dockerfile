@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y upgrade && \
 
 WORKDIR /opt
 
-RUN wget http://nginx.org/download/nginx-1.21.5.tar.gz && \
+RUN wget https://nginx.org/download/nginx-1.21.5.tar.gz && \
     tar -zxvf nginx-1.*.tar.gz && \
     cd nginx-1.* && \
     ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module && \
@@ -23,11 +23,11 @@ RUN adduser --system --no-create-home --disabled-login --disabled-password --gro
 # config dirs
 RUN mkdir /opt/nginx/http.conf.d && mkdir /opt/nginx/stream.conf.d
 
-ADD nginx.conf /opt/nginx/conf/nginx.conf
-ADD set_host.sh /opt/nginx/sbin/set_host.sh
+ADD set_host.sh /opt/set_host.sh
 ADD minecraft.template.conf /opt/minecraft.template.conf
+ADD nginx.conf /opt/nginx/conf/nginx.conf
 
-WORKDIR /
+RUN chmod +x /opt/set_host.sh
 
 EXPOSE 25565
 

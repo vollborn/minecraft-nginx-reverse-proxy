@@ -4,5 +4,6 @@ services:
   proxy:
     image: minecraft-nginx-reverse-proxy
     build: ./src
+    restart: unless-stopped
     ports:
-      - 25565:25565
+      - "25565:25565"

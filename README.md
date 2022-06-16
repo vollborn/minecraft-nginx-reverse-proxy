@@ -28,14 +28,23 @@ You can start the container by executing this command:
 docker-compose up -d
 ```
 
-To set the host IP address you need to execute the following command:
+To change the host IP address or port without restarting the container, you can to execute the following command:
 
 ```shell
 # Windows
-sethost <ip>
+sethost <ip> <port>
 
 # Linux
-bash ./sethost.sh <ip>
+bash ./sethost.sh <ip> <port>
+```
+
+Examples:
+```shell
+# Windows
+sethost 192.168.178.99 25565
+
+# Linux
+bash ./sethost.sh 192.168.178.99 25565
 ```
 
 Here we go.
