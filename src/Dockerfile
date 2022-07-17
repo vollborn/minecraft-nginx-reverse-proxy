@@ -1,7 +1,7 @@
 FROM debian:latest
 
 LABEL maintainer="vollborn <oliver.vollborn@gmail.com>"
-LABEL version="1.0"
+LABEL version="1.1.0"
 LABEL description="a simple nginx reverse proxy for minecraft servers"
 
 RUN apt-get update && apt-get -y upgrade && \
