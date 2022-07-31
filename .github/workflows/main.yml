@@ -25,5 +25,4 @@ jobs:
         with:
           push: true
           tags: vollborn/minecraft-nginx-reverse-proxy:latest
-          file: src/Dockerfile
           context: src
