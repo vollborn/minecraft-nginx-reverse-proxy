@@ -20,10 +20,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: ls
+        run: ls && ls src
+      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
           tags: vollborn/minecraft-nginx-reverse-proxy:latest
-          file: ./src/Dockerfile
-          context: ./src
+          file: src/Dockerfile
+          context: src
