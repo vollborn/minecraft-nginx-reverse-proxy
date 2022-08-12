@@ -6,4 +6,6 @@ services:
     build: ./src
     restart: unless-stopped
     ports:
-      - "25565:25565"
+      - "${LOCAL_PORT:-25565}:25565"
+    env_file:
+      - .env
