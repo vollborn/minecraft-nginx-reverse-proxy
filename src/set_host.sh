@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sourceFile="/opt/minecraft.template.conf"
 configFile="/opt/nginx/stream.conf.d/minecraft.conf"

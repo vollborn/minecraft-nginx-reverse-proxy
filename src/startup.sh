@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ -n ${INITIAL_HOST} ]] && [[ -n ${INITIAL_PORT} ]]; then
     echo "Initial host values set."

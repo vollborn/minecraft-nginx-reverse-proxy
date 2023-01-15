@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 container="proxy"
 script="/opt/set_host.sh"
