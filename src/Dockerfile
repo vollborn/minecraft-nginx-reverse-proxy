@@ -1,7 +1,7 @@
 FROM debian:latest
 
 LABEL maintainer="vollborn <oliver.vollborn@gmail.com>"
-LABEL version="1.2.0"
+LABEL version="1.2.2"
 LABEL description="a simple nginx reverse proxy for minecraft servers"
 
 ENV INITIAL_HOST=""
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get -y upgrade && \
 
 WORKDIR /opt
 
-RUN wget https://nginx.org/download/nginx-1.23.3.tar.gz && \
+RUN wget https://nginx.org/download/nginx-1.23.4.tar.gz && \
     tar -zxvf nginx-1.*.tar.gz && \
     cd nginx-1.* && \
     ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module && \
