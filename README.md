@@ -21,17 +21,18 @@ docker run -p 25565:25565 -e INITIAL_HOST=<host> -e INITIAL_PORT=<port> vollborn
 You can also use docker-compose.
 Example docker-compose.yml:
 ```yml
-version: '3.1'
+version: "3.8"
 
 services:
   proxy:
     image: vollborn/minecraft-nginx-reverse-proxy
     restart: unless-stopped
     ports:
-      - "25565:25565"
+      - "${LOCAL_PORT:-25565}:25565"
     environment:
       INITIAL_HOST: <host>
       INITIAL_PORT: <port>
+      # TZ: "Europe/Berlin"
 ```
 
 Here we go.

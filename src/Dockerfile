@@ -1,8 +1,10 @@
-FROM debian:latest
+FROM debian:12
 
 LABEL maintainer="vollborn <oliver.vollborn@gmail.com>"
-LABEL version="1.2.2"
+LABEL version="1.3.0"
 LABEL description="a simple nginx reverse proxy for minecraft servers"
+
+ENV TZ="Europe/Berlin"
 
 ENV INITIAL_HOST=""
 ENV INITIAL_PORT=""
@@ -13,7 +15,7 @@ RUN apt-get update && apt-get -y upgrade && \
 
 WORKDIR /opt
 
-RUN wget https://nginx.org/download/nginx-1.23.4.tar.gz && \
+RUN wget https://nginx.org/download/nginx-1.26.0.tar.gz && \
     tar -zxvf nginx-1.*.tar.gz && \
     cd nginx-1.* && \
     ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module && \
@@ -33,6 +35,10 @@ ADD nginx.conf /opt/nginx/conf/nginx.conf
 
 RUN chmod +x /opt/startup.sh
 RUN chmod +x /opt/set_host.sh
+
+RUN mkdir -p /var/log/nginx
+RUN ln -s /dev/stdout /var/log/nginx/access.log
+RUN ln -s /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 25565
 
