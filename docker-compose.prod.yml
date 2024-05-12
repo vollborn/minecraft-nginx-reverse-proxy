@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  proxy:
+    image: vollborn/minecraft-nginx-reverse-proxy
+    restart: unless-stopped
+    ports:
+      - "${LOCAL_PORT:-25565}:25565"
+    environment:
+      INITIAL_HOST: "${INITIAL_HOST}"
+      INITIAL_PORT: "${INITIAL_PORT}"
+      TZ: "${TZ:-Europe/Berlin}"
