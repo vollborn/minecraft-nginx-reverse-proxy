@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   proxy:
     image: minecraft-nginx-reverse-proxy

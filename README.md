@@ -21,8 +21,6 @@ docker run -p 25565:25565 -e INITIAL_HOST=<host> -e INITIAL_PORT=<port> vollborn
 You can also use docker-compose.
 Example docker-compose.yml:
 ```yml
-version: "3.8"
-
 services:
   proxy:
     image: vollborn/minecraft-nginx-reverse-proxy
