@@ -10,7 +10,7 @@ on:
 
 jobs:
   docker:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     environment: production
     steps:
       -   name: Checkout
