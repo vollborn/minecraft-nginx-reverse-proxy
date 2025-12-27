@@ -1,4 +1,4 @@
-FROM debian:12
+FROM debian:13
 
 LABEL maintainer="vollborn <oliver.vollborn@gmail.com>"
 LABEL version="1.3.0"
@@ -10,12 +10,12 @@ ENV INITIAL_HOST=""
 ENV INITIAL_PORT=""
 
 RUN apt-get update && apt-get -y upgrade && \
-    apt-get install -y wget libpcre3-dev build-essential libssl-dev zlib1g-dev && \
+    apt-get install -y wget libpcre2-dev build-essential libssl-dev zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
 
-RUN wget https://nginx.org/download/nginx-1.26.0.tar.gz && \
+RUN wget https://nginx.org/download/nginx-1.28.1.tar.gz && \
     tar -zxvf nginx-1.*.tar.gz && \
     cd nginx-1.* && \
     ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module && \
@@ -23,7 +23,8 @@ RUN wget https://nginx.org/download/nginx-1.26.0.tar.gz && \
     cd .. && rm -rf nginx-1.*
 
 # nginx user
-RUN adduser --system --no-create-home --disabled-login --disabled-password --group nginx
+RUN groupadd nginx && \
+    useradd --system --no-create-home --shell /usr/sbin/nologin --password="" -g nginx nginx
 
 # config dirs
 RUN mkdir /opt/nginx/http.conf.d && mkdir /opt/nginx/stream.conf.d
