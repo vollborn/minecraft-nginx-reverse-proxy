@@ -1,7 +1,7 @@
 FROM debian:13-slim
 
 LABEL maintainer="vollborn <oliver.vollborn@gmail.com>"
-LABEL version="1.4.0"
+LABEL version="1.5.0"
 LABEL description="a simple nginx reverse proxy for minecraft servers"
 
 ENV TZ="Europe/Berlin"
