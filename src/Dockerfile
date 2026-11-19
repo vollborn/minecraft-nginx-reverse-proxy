@@ -1,7 +1,7 @@
 FROM debian:13-slim
 
 LABEL maintainer="vollborn <oliver.vollborn@gmail.com>"
-LABEL version="1.5.0"
+LABEL version="1.5.1"
 LABEL description="a simple nginx reverse proxy for minecraft servers"
 
 ENV TZ="Europe/Berlin"
@@ -18,7 +18,7 @@ RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y wget libpcre2-dev build-essential libssl-dev zlib1g-dev && \
     rm -rf /var/lib/apt/lists/* && \
-    wget https://nginx.org/download/nginx-1.30.6.tar.gz && \
+    wget https://nginx.org/download/nginx-1.30.7.tar.gz && \
     tar -zxvf nginx-1.*.tar.gz && \
     cd nginx-1.* && \
     ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module && \
